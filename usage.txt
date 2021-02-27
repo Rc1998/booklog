@@ -1,0 +1,16 @@
+
+$booklog <title>: show status of book (if book exists or not, show similar titles to fix misspell)
+-h, --help: show help info
+-n, --note <title>: Edit book notes 
+-a, --author <firstname lastname>: author name
+-i, --isbn <number>: isbn number of book
+-e, --edit <title>
+-t, --tag <tag>: add tag to book
+
+example
+$booklog -n The Way of Kings -a brandon sanderson -t fantasy fiction
+
+$booklog "The Way of Kings"
+>> The Way of Kings by Brandon Sanderson
+>> Tags: Fantasy, Fiction
+>> Notes: ...
