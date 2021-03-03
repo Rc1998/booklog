@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import argparse
+from book import Book
 
 # parse some input params
 # $booklog <title>: show status of book (if book exists or not, show similar titles to fix misspell)
@@ -20,17 +21,15 @@ import argparse
 # >> Notes: ...
 
 
-# do task based on input params
-
 parser = argparse.ArgumentParser(prog='booklog', description='Log your books.')
-parser.add_argument('-t','--title', metavar='<title>', help='title of a book')
-parser.add_argument('-a', '--author', metavar='<author>', help='author of a book')
-parser.add_argument('-n', '--note', help='edit book note')
 
+# Optionals
+parser.add_argument('-t','--title', help='title of a book')
+parser.add_argument('-a', '--author', help='author of a book')
+parser.add_argument('-n', '--note', help='edit book note')
+parser.add_argument('-l', '--list', help='add book to list')
 args = parser.parse_args()
 
 if args.title:
-    print("Title: " + args.title)
-
-if args.author:
-    print("Author: " + args.author)
+    bk1 = Book(args.title, args.author, args.list)
+    bk1.writeBook()
